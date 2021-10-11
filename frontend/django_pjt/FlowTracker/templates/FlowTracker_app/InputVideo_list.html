@@ -1,9 +1,0 @@
-{% if InputVideo_list %}
-    <ul>
-    {% for InputVideo in InputVideo_list %}
-        <li><a href="/FlowTracker_app/{{ InputVideo.id }}/">{{ InputVideo.owner }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>There's No Input!</p>
-{% endif %}
