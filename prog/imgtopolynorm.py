@@ -6,7 +6,7 @@ import numpy as np
 import pyvista as pv
 
 #원 데이터 경로
-glob_path = "C:/Users/Dell/2dtodepth/2dtodepth/spm/outfile/"
+glob_path = "../spm/outfile/"
 
 file_list = os.listdir(glob_path)
 file_list_jpg1 = []
@@ -128,52 +128,104 @@ for k in range(0,len(file_list_jpg1)):
     
 
 for k in range(0,len(file_list_png1)):
-    reshaped_list2 = []
-    reshaped_list4 = []
+    reshaped_list1 = []
+    reshaped_list3 = []
+    reshaped_list5 = []
+    reshaped_list7 = []
     img = Image.open(glob_path + file_list_png1[k] + '.png').convert("L")
-    grayimg2 = np.asarray(img.getdata(glob_path + file_list_png1[k] + '.png')).reshape(img.size[1], img.size[0], -1)
-    print(type(grayimg2))
+    grayimg1 = np.asarray(img.getdata(glob_path + file_list_png1[k] + '.png')).reshape(img.size[1], img.size[0], -1)
+    print(type(grayimg1))
     print(glob_path + file_list_png1[k] + '.png')
-    print(grayimg2.shape)
-    reshaped_gi2 = grayimg2.reshape(288,1024)
-    for i in range(0,reshaped_gi2.shape[0]):
-        for j in range (0, reshaped_gi2.shape[1]):
-            reshaped_list2.append([i,j,reshaped_gi2[i][j]])
+    print(grayimg1.shape)
     
-    # for i in range(0,reshaped_gi1.shape[0]):
-        # for j in range (513, reshaped_gi1.shape[1]):
-            # reshaped_list4.append([i,j,(reshaped_gi2[i][j]+reshaped_gi2[i][j-512])/2])
+    reshaped_gi1 = grayimg1.reshape(img.size[1],img.size[0])
+    mean_z = np.mean(reshaped_gi1[:,int(img.size[0]/2):])
+    standard_z = np.std(reshaped_gi1[:,int(img.size[0]/2):])
+    mean_z1 = np.mean(reshaped_gi1[:,:int(img.size[0]/2)-1])
+    standard_z1 = np.std(reshaped_gi1[:,:int(img.size[0]/2)-1])
+    print(mean_z)
     
-    reshaped_polydata2 = np.array(reshaped_list2)
-    # reshaped_polydata4 = np.array(reshaped_list4)
-    print(reshaped_polydata2)
-    print(type(reshaped_polydata2))
-
-    #polydata 2
-    point_cloud = pv.PolyData(reshaped_polydata2)
+    # 전체 이미지
+    for i in range(0,reshaped_gi1.shape[0]):
+        for j in range (0, reshaped_gi1.shape[1]):
+            reshaped_list1.append([i,j,reshaped_gi1[i][j]])
     
-    np.allclose(reshaped_polydata2, point_cloud.points)
+    # Mean Normalization        
+    for i in range(0,reshaped_gi1.shape[0]):
+        for j in range (int(img.size[0]/2), reshaped_gi1.shape[1]):
+                        reshaped_list3.append([i,j,(((reshaped_gi1[i][j]+mean_z)+(reshaped_gi1[i][j-int(img.size[0]/2)])-mean_z1)/2)])
+    
+    # standard dev Normalization
+    # for i in range(0,reshaped_gi1.shape[0]-4):
+        # for j in range (0, int(img.size[0]/2)):
+            # standard_value = (reshaped_gi1[i][j] - mean_z1)/standard_z1
+            # if standard_value > 0:
+                # reshaped_list5.append([i,j,(mean_z1+reshaped_gi1[i][j+int(img.size[0]/2)])/2])
+            # else:
+                # reshaped_list5.append([i,j,(reshaped_gi1[i][j]+reshaped_gi1[i][j+int(img.size[0]/2)]) - mean_z1])
+    
+    # Normalization_diff2        
+    for i in range(0,reshaped_gi1.shape[0]):
+        for j in range (int((reshaped_gi1.shape[1])/2)+1, reshaped_gi1.shape[1]):
+            reshaped_list7.append([i,j,(100*(reshaped_gi1[i][j]+mean_z)+30*(reshaped_gi1[i][j-int(img.size[0]/2)]-mean_z1))/222])
+            
+    reshaped_polydata1 = np.array(reshaped_list1)
+    reshaped_polydata3 = np.array(reshaped_list3)
+    # reshaped_polydata5 = np.array(reshaped_list5)
+    reshaped_polydata7 = np.array(reshaped_list7)
+    print(reshaped_polydata1)
+    print(type(reshaped_polydata1))
+    
+    #polydata 1
+    point_cloud = pv.PolyData(reshaped_polydata1)
 
-    point_cloud.plot(eye_dome_lighting=True)
+    np.allclose(reshaped_polydata1, point_cloud.points)
 
-    data = reshaped_polydata2[:,-1]
+    # point_cloud.plot(eye_dome_lighting=True)
+    
+    # point_cloud.save(glob_path + file_list_jpg1[k] + '.vtk')
+    
+    data = reshaped_polydata1[:,-1]
+
+    point_cloud["elevation"] = data
+    
+    point_cloud.plot(render_points_as_spheres=True)
+    
+    #polydata 3
+    point_cloud = pv.PolyData(reshaped_polydata3)
+
+    np.allclose(reshaped_polydata3, point_cloud.points)
+
+    # point_cloud.plot(eye_dome_lighting=True)
+
+    data = reshaped_polydata3[:,-1]
 
     point_cloud["elevation"] = data
 
     point_cloud.plot(render_points_as_spheres=True)
     
-    point_cloud.save(glob_path + file_list_png1[k] + '.vtk')
+    # #polydata 5
+    # point_cloud = pv.PolyData(reshaped_polydata5)
 
-    #polydata 4
-    # point_cloud = pv.PolyData(reshaped_polydata4)
-    
-    # np.allclose(reshaped_polydata4, point_cloud.points)
+    # np.allclose(reshaped_polydata5, point_cloud.points)
 
     # point_cloud.plot(eye_dome_lighting=True)
 
-    # data = reshaped_polydata4[:,-1]
+    # data = reshaped_polydata5[:,-1]
 
     # point_cloud["elevation"] = data
 
     # point_cloud.plot(render_points_as_spheres=True)
+    
+    #polydata 7
+    point_cloud = pv.PolyData(reshaped_polydata7)
 
+    np.allclose(reshaped_polydata7, point_cloud.points)
+
+    # point_cloud.plot(eye_dome_lighting=True)
+
+    data = reshaped_polydata7[:,-1]
+
+    point_cloud["elevation"] = data
+
+    point_cloud.plot(render_points_as_spheres=True)
