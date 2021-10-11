@@ -5,4 +5,4 @@
 
 
 # Requirments -- 2d depths map
-pip install h5py pyvista scikit-image scipy torchvision torch pillow
+#### pip install h5py pyvista scikit-image scipy torchvision torch pillow
