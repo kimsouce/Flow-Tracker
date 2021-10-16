@@ -13,5 +13,3 @@ python ./prog/spm.py --input=black
 python ./prog/depthto3d.py
 ### Producing OBJ data
 python ./prog/vtktoobj.py
-
->>>>>>> 82381b54f979c9396d39542d767316eefc2d2be2
