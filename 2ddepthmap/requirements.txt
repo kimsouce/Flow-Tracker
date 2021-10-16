@@ -1,8 +1,0 @@
-h5py 
-pyvista 
-scikit-image 
-scipy 
-torchvision 
-torch 
-pillow
-vtk
