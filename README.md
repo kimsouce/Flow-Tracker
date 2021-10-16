@@ -6,11 +6,11 @@
 # UNet_Model
 
 # Depthmap_Model
-### pip install -r ./requirements.txt
-## Producing Depthmap
-### python ./prog/spm.py --input=black
-## Producing 3D_vtk_file + Screenshot
-### python ./prog/depthto3d.py
-## Producing OBJ data
-### python ./prog/vtktoobj.py
+pip install -r ./requirements.txt
+#### Producing Depthmap
+python ./prog/spm.py --input=black
+#### Producing 3D_vtk_file + Screenshot
+python ./prog/depthto3d.py
+#### Producing OBJ data
+python ./prog/vtktoobj.py
 
