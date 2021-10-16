@@ -1,7 +1,7 @@
 import os
 import pyvista as pv
 import argparse
-from pyvista import examples
+import numpy as np
 
 def convertFiles(indir, outdir):
     files = os.listdir(indir)
@@ -11,22 +11,18 @@ def convertFiles(indir, outdir):
     print("Out:", outdir)
     for f in files:
         mesh = pv.read(f)
+        data = np.loadtxt(f.split('.vt')[0] + '.txt')
+        mesh["elevation"] = data
         print(files)
         basename = os.path.basename(f)
         print("Copying file:", basename)
         basename = os.path.splitext(basename)[0]
         print("Fle name:", basename)
-        othermesh = examples.load_uniform()
-        legend_entries = []
-        legend_entries.append(['Liver converted', 'w'])
-        legend_entries.append(['External marker', 'k'])
         plotter = pv.Plotter()
         _ = plotter.add_mesh(mesh)
-        _ = plotter.add_mesh(othermesh, 'k')
-        _ = plotter.add_legend(legend_entries)
-        _ = plotter.export_obj(outdir+"conv_"+basename+".obj")
+        _ = plotter.export_obj(outdir+basename)
         ret +=1
-        plotter.show()
+        # plotter.show()
 
     print("Successfully converted %d out of %d files." % (ret, len(files)))
 
@@ -36,7 +32,7 @@ def run(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="VTK to OBJ converter")
     parser.add_argument('indir', help="Path to input directory.")
-    parser.add_argument('--outdir', '-o', default='output', help="Path to output directory.")
+    parser.add_argument('--outdir', '-o', default='../spm/outfile/obj/', help="Path to output directory.")
     parser.set_defaults(func=run)
     args = parser.parse_args()
     ret = args.func(args)
