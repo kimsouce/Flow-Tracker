@@ -1,1 +1,0 @@
-python test_custom.py --weights-dir "/home/blushy/UNet/best_model/Automation/UNet_Custom_best.pth" --raw-image-dir "/home/blushy/DATA_unet/images/1" --mask-image-dir "/home/blushy/DATA_unet/masks/1" --save-dir "/home/blushy/DATA_unet/test_result/1" --device "0"
