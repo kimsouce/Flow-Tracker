@@ -8,7 +8,7 @@ https://user-images.githubusercontent.com/60845730/137613454-7211dcf8-c4b7-414d-
 ### home page 
 /home/blushy/flowtracker/templates/home.html
 /home/blushy/flowtracker/flowtracker
-<code/>
+```
 .
 ├── asgi.py
 ├── __init__.py
@@ -24,11 +24,11 @@ https://user-images.githubusercontent.com/60845730/137613454-7211dcf8-c4b7-414d-
 ├── urls.py
 ├── views.py
 └── wsgi.py
-</code>
+```
 
 ### history page 
 /home/blushy/flowtracker/tab1/templates/tab1/
-<code/>
+```
 .
 ├── admin.py
 ├── apps.py
@@ -53,11 +53,11 @@ https://user-images.githubusercontent.com/60845730/137613454-7211dcf8-c4b7-414d-
 ├── tests.py
 ├── urls.py
 └── views.py
-</code>
+```
 
 ### upload page 
 /home/blushy/flowtracker/upload
-<code/>
+```
 .
 ├── admin.py
 ├── apps.py
@@ -82,12 +82,12 @@ https://user-images.githubusercontent.com/60845730/137613454-7211dcf8-c4b7-414d-
 ├── tests.py
 ├── urls.py
 └── views.py
-</code>
+```
 
 ### album & photo page 
 /home/blushy/flowtracker/photo
 
-<code/>
+```
 .
 ├── admin.py
 ├── apps.py
@@ -127,7 +127,7 @@ https://user-images.githubusercontent.com/60845730/137613454-7211dcf8-c4b7-414d-
 ├── urls.py
 └── views.py
 
-</code>
+```
 
 ### Dashboard
 kibana 접속 : http://112.216.150.163:8000
