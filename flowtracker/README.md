@@ -7,8 +7,11 @@ https://user-images.githubusercontent.com/60845730/137613454-7211dcf8-c4b7-414d-
 
 ### home page 
 📍 프로젝트 이름 입력
+<br>
 📍 파일선택(로컬에 위치한 input용 비디오 선택)
+<br>
 📍 분석(slicing code & YOLO v5 & Unet & 2D Depth Map 모델 연동)
+<br>
 📍 탐지된 결함 이미지 DB에 자동 업로드
 <br>
 <code/>
@@ -36,7 +39,9 @@ $ cd /home/blushy/flowtracker/flowtracker
 
 ### history page 
 📍 번호 : 영상 업로드 순서
+<br>
 📍 영상 타이틀 : home page에서 설정한 프로젝트 타이틀
+<br>
 📍 업로드 날짜 & 시간 : 영상을 업로드한 실제 시각
 <br>
 <code/>
@@ -72,6 +77,7 @@ $ cd /home/blushy/flowtracker/flowtracker
 
 ### upload page 
 📍 하수관로 결함 분석 결과 업로드 : 해당 일자의 분석 결과를 앨범으로 만들어 한번에 업로드 가능, 유저 이름을 통해 어떤 계정으로 접속하고 있는지 확인 가능
+<br>
 📍 결함 이미지 업로드 : 기존 앨번에 사진의 추가하고자 할 때 사용 
 <br>
 <code/>
@@ -107,6 +113,7 @@ $ cd /home/blushy/flowtracker/flowtracker
 
 ### album & photo page 
 📍 앨범 페이지 : 업로드한 앨범 이름과 이미지들 적재, 이미지 클릭하여 상세 정보 확인 가능
+<br>
 📍 상세 페이지 : 이미지에 대한 상세한 정보 확인 가능
 <br>
 <code/>
