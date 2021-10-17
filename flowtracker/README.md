@@ -16,6 +16,9 @@ https://user-images.githubusercontent.com/60845730/137613454-7211dcf8-c4b7-414d-
 <br>
 <code/>
 $ cd /home/blushy/flowtracker/templates/home.html
+</code>
+<br>
+<code/>
 $ cd /home/blushy/flowtracker/flowtracker
 </code>
 <br>
@@ -45,7 +48,7 @@ $ cd /home/blushy/flowtracker/flowtracker
 📍 업로드 날짜 & 시간 : 영상을 업로드한 실제 시각
 <br>
 <code/>
-/home/blushy/flowtracker/tab1/templates/tab1/
+$ cd /home/blushy/flowtracker/tab1/templates/tab1/
 </code>
 <br>
 ```
@@ -81,7 +84,7 @@ $ cd /home/blushy/flowtracker/flowtracker
 📍 결함 이미지 업로드 : 기존 앨번에 사진의 추가하고자 할 때 사용 
 <br>
 <code/>
-/home/blushy/flowtracker/upload
+$ cd /home/blushy/flowtracker/upload
 </code>
 <br>
 ```
@@ -117,7 +120,7 @@ $ cd /home/blushy/flowtracker/flowtracker
 📍 상세 페이지 : 이미지에 대한 상세한 정보 확인 가능
 <br>
 <code/>
-/home/blushy/flowtracker/photo
+$ cd /home/blushy/flowtracker/photo
 </code>
 <br>
 ```
