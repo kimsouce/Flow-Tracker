@@ -2,6 +2,7 @@
 하수관로 결함탐지 알고리즘
 
 # YOLOv5_Model
+pip install -r ./requirements.txt
 ### Detection
 python ./yolov5/detect.py --weights 'path_to_your_weight' --source "path_to_your_infile"
 
