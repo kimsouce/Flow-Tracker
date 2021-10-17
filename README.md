@@ -13,6 +13,7 @@ python ./UNet/test.py --weights-dir "path_to_your_weight" --raw-image-dir "path_
 pip install -r ./requirements.txt
 ### Producing Depthmap
 python ./prog/spm.py --input=black
+
 ![example](https://user-images.githubusercontent.com/65105801/137611561-6ec31484-beb0-402b-b36e-6df63420ede3.jpg)
 ![0_example](https://user-images.githubusercontent.com/65105801/137611566-e53e7a94-c58f-4b2d-a8a6-f1c163adf1f7.jpg)
 
