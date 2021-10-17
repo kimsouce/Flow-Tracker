@@ -130,4 +130,4 @@ https://user-images.githubusercontent.com/60845730/137613454-7211dcf8-c4b7-414d-
 ```
 
 ### Dashboard
-kibana 접속 : http://112.216.150.163:8000
+kibana 접속 : http://112.216.150.163:5601
