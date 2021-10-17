@@ -1,0 +1,129 @@
+{% load widget_tweaks %}
+
+<!--HOME 버튼-->
+    <div style='width:200px;  float:left;'>
+    <button type="button" onclick="location.href='/';">홈으로</button>
+    </div>
+
+{% block content %}
+    <br/>
+    <h1>하수관로 결함 분석 결과 업로드 - {{user}}</h1>
+
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <div class="font-weight-bold">ERROR! 폼 형식이 맞지 않습니다.</div>
+        {{ form.errors }}
+    </div>
+    {% endif %}
+
+    {% if formset.errors %}
+    <div class="alert alert-warning">
+        <div class="font-weight-bold">ERROR! 폼 형식이 맞지 않습니다.</div>
+        {% for formerrors in formset.errors %}
+            {{ formerrors }}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if form.is_multipart or formset.is_multipart %}
+    <form enctype="multipart/form-data" action="" method="post">
+    {% else %}
+    <form action="." method="post">
+    {% endif %}
+    {% csrf_token %}
+
+        <h4>앨범 이름 및 한줄 설명</h4>
+
+        <fieldset class="card pt-3">
+
+            <div class="form-group row">
+                {{ form.name|add_label_class:"col-form-label col-sm-3 ml-3 font-weight-bold" }}
+                <div class="col-sm-5">
+                    {{ form.name|add_class:"form-control"|attr:"autofocus" }}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                {{ form.description|add_label_class:"col-form-label col-sm-3 ml-3 font-weight-bold" }}
+                <div class="col-sm-5">
+                    {{ form.description|add_class:"form-control" }}
+                </div>
+            </div>
+
+        </fieldset>
+        <br>
+
+        <h4>결함이미지 업로드</h4>
+
+        <fieldset class="card pt-3">
+
+            {{ formset.management_form }}
+            {% for form in formset %}
+                {{ form.id }}
+                {# form.album #}
+            <div class="form-group row">
+                {{ form.image|add_label_class:"col-form-label col-sm-3 ml-3 font-weight-bold" }}
+                <div class="col-sm-5">
+                    {{ form.image|add_class:"form-control-file" }}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                {{ form.title|add_label_class:"col-form-label col-sm-3 ml-3 font-weight-bold" }}
+                <div class="col-sm-5">
+                    {{ form.title|add_class:"form-control" }}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                {{ form.description|add_label_class:"col-form-label col-sm-3 ml-3 font-weight-bold" }}
+                <div class="col-sm-8">
+                    {{ form.description|add_class:"form-control"|attr:"rows:3" }}
+                </div>
+            </div>
+
+            <hr>
+            {% endfor %}
+
+        </fieldset>
+
+        <div class="form-group card py-1">
+            <div class="offset-sm-3 col-sm-5">
+                <input id="upload" type="submit" value="업로드">
+            </div>
+		<style>
+			#upload {
+				margin-top: 5px;
+				width: 100px;
+				height: 30px;
+				background-color: green;
+				color: white;
+				cursor: pointer;
+			}
+		</style>
+        </div>
+	
+	<div id="upload_photo">
+	<button id="photo" onclick="location.href='{% url 'photo:photo_add' %}'">아니오! 사진업로드</button>
+	</div>
+	    	<style>
+			#photo {
+				float: left; 
+				margin-top: 5px;
+                                width: 200px;
+                                height: 30px;
+                                background-color: #F5F5F5;
+                                color: black;
+				cursor: pointer;
+			}
+			#upload_photo button:hover{
+				color:green;
+				background-color: white;
+			}
+		</style>
+
+    </form>
+
+{% endblock %}
+
+

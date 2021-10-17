@@ -1,0 +1,1 @@
+python train_custom.py --raw-train-dir  "/home/blushy/DATA_unet/images/" --mask-train-dir "/home/blushy/DATA_unet/masks/" --raw-valid-dir  "/home/blushy/DATA_unet/images/" --mask-valid-dir "/home/blushy/DATA_unet/masks/" --device "1"

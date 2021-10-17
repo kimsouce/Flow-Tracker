@@ -1,0 +1,7 @@
+Watching for file changes with StatReloader
+Not Found: /
+[05/Sep/2021 15:34:52] "GET / HTTP/1.1" 404 2176
+Not Found: /favicon.ico
+[05/Sep/2021 15:34:52] "GET /favicon.ico HTTP/1.1" 404 2227
+Not Found: /
+[05/Sep/2021 15:35:21] "GET / HTTP/1.1" 404 2176

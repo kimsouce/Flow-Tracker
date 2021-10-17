@@ -1,0 +1,1 @@
+python test.py --weights-dir "/home/blushy/UNet_CE/best_model/Automation/UNet_best.pth" --raw-image-dir "/home/blushy/DATA/test/images/12/" --save-dir "/home/blushy/RESULT/" --device "0"

@@ -1,0 +1,76 @@
+{% load widget_tweaks %}
+
+<!--HOME 버튼-->
+    <div style='width:200px;  float:left;'>
+    <button type="button" onclick="location.href='/';">홈으로</button>
+    </div>
+{% block content %}
+    <br/>
+    <h1>결함 이미지 업로드 - {{user}}</h1>
+
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <div class="font-weight-bold">ERROR! 폼 형식이 맞지 않습니다.</div>
+        {{ form.errors }}
+    </div>
+    {% endif %}
+
+    {% if form.is_multipart %}
+    <form enctype="multipart/form-data" action="" method="post" class="card pt-3">
+    {% else %}
+    <form action="." method="post" class="card pt-3">
+    {% endif %}
+    {% csrf_token %}
+
+        <div class="form-group row">
+            {{ form.album|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            <div class="col-sm-2">
+                {{ form.album|add_class:"form-control" }}
+            </div>
+            <div class="col-sm-2 my-auto">
+                <a href="{% url 'photo:album_add' %}" class="btn btn-outline-primary btn-sm">
+                앨범 추가하기</a>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            {{ form.title|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            <div class="col-sm-5">
+                {{ form.title|add_class:"form-control"|attr:"autofocus" }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            {{ form.image|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            <div class="col-sm-5">
+                {{ form.image|add_class:"form-control-file" }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            {{ form.description|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
+            <div class="col-sm-8">
+                {{ form.description|add_class:"form-control"|attr:"rows:3" }}
+            </div>
+        </div>
+
+        <div class="form-group">
+		 <div class="offset-sm-3 col-sm-5">
+                <input id="upload" type="submit" value="업로드">
+            </div>
+                <style>
+                        #upload {
+                                margin-top: 5px;
+                                width: 100px;
+                                height: 30px;
+                                background-color: green;
+                                color: white;
+				cursor: pointer;
+                        }
+                </style>
+
+        </div>
+
+    </form>
+
+{% endblock %}
