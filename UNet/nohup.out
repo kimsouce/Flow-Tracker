@@ -1,42 +1,0 @@
-wandb: Currently logged in as: van52 (use `wandb login --relogin` to force relogin)
-Namespace(batch_size=8, device='0', epochs=300, input_shape=256, mask_train_dir='/home/blushy/DATA_unet_b/masks/', mask_valid_dir='/home/blushy/DATA_unet_cb/val_msk/', model_name='Unet_resnet18', num_class=2, project='segmentation', raw_train_dir='/home/blushy/DATA_unet_b/images/', raw_valid_dir='/home/blushy/DATA_unet_cb/val_img/', scale=2, seed=123)
-wandb: wandb version 0.12.4 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.12.1
-wandb: Syncing run ancient-shadow-31
-wandb: ⭐️ View project at https://wandb.ai/van52/segmentation
-wandb: 🚀 View run at https://wandb.ai/van52/segmentation/runs/3udxeqws
-wandb: Run data is saved locally in /home/blushy/UNet/wandb/run-20211016_115045-3udxeqws
-wandb: Run `wandb offline` to turn off syncing.
-Unet_resnet18 5a93935 torch 1.9.0+cu111 CUDA:0 (Quadro RTX 5000, 16125.3125MB)
-
-
-Traceback (most recent call last):
-  File "train.py", line 312, in <module>
-    main()
-  File "train.py", line 124, in main
-    drop_last = True)
-  File "/home/blushy/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 270, in __init__
-    sampler = RandomSampler(dataset, generator=generator)  # type: ignore[arg-type]
-  File "/home/blushy/.local/lib/python3.6/site-packages/torch/utils/data/sampler.py", line 103, in __init__
-    "value, but got num_samples={}".format(self.num_samples))
-ValueError: num_samples should be a positive integer value, but got num_samples=0
-Traceback (most recent call last):
-  File "train.py", line 312, in <module>
-    main()
-  File "train.py", line 124, in main
-    drop_last = True)
-  File "/home/blushy/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 270, in __init__
-    sampler = RandomSampler(dataset, generator=generator)  # type: ignore[arg-type]
-  File "/home/blushy/.local/lib/python3.6/site-packages/torch/utils/data/sampler.py", line 103, in __init__
-    "value, but got num_samples={}".format(self.num_samples))
-ValueError: num_samples should be a positive integer value, but got num_samples=0
-wandb: Waiting for W&B process to finish, PID 17080
-wandb: Program failed with code 1.  Press ctrl-c to abort syncing.
-wandb: - 0.00MB of 0.00MB uploaded (0.00MB deduped)wandb: \ 0.00MB of 0.00MB uploaded (0.00MB deduped)wandb: | 0.00MB of 0.01MB uploaded (0.00MB deduped)wandb: / 0.00MB of 0.01MB uploaded (0.00MB deduped)wandb: - 0.00MB of 0.01MB uploaded (0.00MB deduped)wandb: \ 0.01MB of 0.01MB uploaded (0.00MB deduped)wandb: | 0.01MB of 0.01MB uploaded (0.00MB deduped)wandb: / 0.01MB of 0.01MB uploaded (0.00MB deduped)wandb: - 0.01MB of 0.01MB uploaded (0.00MB deduped)wandb: \ 0.01MB of 0.01MB uploaded (0.00MB deduped)wandb: | 0.01MB of 0.01MB uploaded (0.00MB deduped)wandb: / 0.01MB of 0.01MB uploaded (0.00MB deduped)wandb:                                                                                
-wandb: Find user logs for this run at: /home/blushy/UNet/wandb/run-20211016_115045-3udxeqws/logs/debug.log
-wandb: Find internal logs for this run at: /home/blushy/UNet/wandb/run-20211016_115045-3udxeqws/logs/debug-internal.log
-wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-wandb: 
-wandb: Synced ancient-shadow-31: https://wandb.ai/van52/segmentation/runs/3udxeqws
-
