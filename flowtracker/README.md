@@ -1,5 +1,6 @@
 ## Django
 데이터베이스 기반 웹사이트 개발을 위한 오픈소스 파이썬 웹 프레임워크 
+웹접속 : 112.216.150.163:8000 
 
 https://user-images.githubusercontent.com/60845730/137613454-7211dcf8-c4b7-414d-8a20-940bf8e0efc8.mov
 
